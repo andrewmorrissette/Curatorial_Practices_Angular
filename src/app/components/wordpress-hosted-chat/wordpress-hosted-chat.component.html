@@ -21,7 +21,7 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <a mat-button routerLink="/home"><mat-icon>home</mat-icon></a>
+        <a mat-button (click)="backToLabel()"><mat-icon>home</mat-icon></a>
         <span [innerHTML]="currentArtwork.title.rendered"></span>
       </mat-toolbar>
       <!-- Add Content Here -->

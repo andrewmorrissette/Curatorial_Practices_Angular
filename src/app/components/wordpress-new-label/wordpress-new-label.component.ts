@@ -8,6 +8,7 @@ import { Router,NavigationEnd } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl, SafeHtml , SafeUrl} from '@angular/platform-browser';
 import { TemplateBindingParseResult } from '@angular/compiler';
 import { Url } from 'url';
+import { SubscriptionLike, Observable,timer} from 'rxjs';
 
 @Component({
   selector: 'app-wordpress-new-label',
@@ -22,6 +23,7 @@ export class WordpressNewLabelComponent implements OnInit {
   public currentExtended:extendedLabel=null;
   public hideTombstone:boolean = false;
   public showExtended:boolean = false;
+  public chatOpen:boolean = false;
 
   public extendedLabel1:extendedLabel=null;
   public extendedLabel2:extendedLabel=null;
@@ -31,7 +33,11 @@ export class WordpressNewLabelComponent implements OnInit {
   public labelVideoHTML: SafeHtml;
   public extendedLabelVideoHTML: SafeHtml;
 
+  public labelTimer:number=null;
+  public timerSubscription:any = null;
+
   ngOnInit() {
+    console.log("Updated as of 3/12/2020 12:33pm");
 
     let labelID:string = this._router.snapshot.paramMap.get("id");
     console.log("Label ID: ",Number(labelID));
@@ -46,10 +52,27 @@ export class WordpressNewLabelComponent implements OnInit {
             console.log("Artwork: ",artwork);
             if(artwork != null){
             this.currentArtwork = artwork;
+            console.log("Chat Status: ",this.currentArtwork.comment_status);
+            if(this.currentArtwork.comment_status == "open"){
+              this.chatOpen = true;
+            }
+            else{
+              this.chatOpen = false;
+            }
             }
             if(this.currentLabel.acf.video_url!= null && this.currentLabel.acf.video_url!= ""){
               this.labelVideoHTML = this.sanitizeHTML(this.currentLabel.acf.video_url);
             }
+
+            //Get Timer Setting
+            this.wordpressAPI.getLabelTimer().subscribe((response)=>{
+              if(response[0].acf.labelTimer!=null){
+                this.labelTimer = response[0].acf.labelTimer;
+                //Set up Timer to run hide function on extended content.
+                this.timer();
+              }
+            })
+       
             if(this.currentLabel.acf.firstExtended != null){
               this.wordpressAPI.getExtendedLabel(this.currentLabel.acf.firstExtended).subscribe((extension1)=>{
                 if(extension1!=null){
@@ -92,6 +115,7 @@ onExtension(extension:extendedLabel){
 }
 goToChat(){
   console.log("Artwork ID:",this.currentArtwork.id);
+  this.wordpressAPI.setCurrentLabel(this.currentLabel.id.toString());
   this._route.navigate(['/chat/',this.currentArtwork.id]);
 }
 
@@ -100,4 +124,17 @@ sanitizeHTML(text:string){
   return temp;
 }
 
+isChatOpen(){
+  console.log("Is Chat Open?: ",this.chatOpen);
+  return this.chatOpen;
+}
+
+private timer():void{
+  this.timerSubscription = timer(this.labelTimer*1000,this.labelTimer*1000).subscribe(()=>{
+    if(this.hideTombstone==true){
+      this.hideTombstone=false;
+      this.showExtended=false;
+    }
+  });
+}
 }

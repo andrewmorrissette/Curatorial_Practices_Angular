@@ -1,6 +1,9 @@
 export interface Artwork{
     id?:number,
     acf?:ACF
+
+    //Prop that determines chat availability
+    comment_status?:string,
 }
 
 export interface ACF{

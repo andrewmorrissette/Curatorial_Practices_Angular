@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
         //this.auth.setToken(response.token);
         //console.log(this.auth.getToken(),"Token Saved");
 
-        this._route.navigate(['/home/']);
+        this._route.navigate(['/chat/' + this.auth.getArtworkID()]);
 
       }
     },

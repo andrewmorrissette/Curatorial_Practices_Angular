@@ -1,4 +1,4 @@
-
+<div class="margin">
    <div class="label">
 
         <div class="Tombstone" *ngIf="currentArtwork!=null && hideTombstone ==false">
@@ -8,7 +8,7 @@
             <p class="p2" class="artistYear">{{currentArtwork.acf.artist_year}}</p>
             <!-- birth/ death year -->
             
-            <br>
+            
             <!-- empty line -->
 
             <p class="p3" class="artworkTitle">{{currentArtwork.acf.artwork_title}}</p>
@@ -46,7 +46,7 @@
             <img id="extended-tombstone-back" class="button2" src="https://culturalnexus.msu.edu/wordpress/wp-content/uploads/2020/01/backarrow1.png" alt="Back Button!"
             width="40px" height="40px" (click)="hideTombstone=false;"
             >
-            <p class="extendedContent">Have a Question? Chat with visitors and curators <a class="extendedLabel" (click)="goToChat()">HERE.</a></p>
+            <p class="extendedContent" *ngIf="chatOpen">Have a Question? Chat with visitors and curators <a class="extendedLabel" (click)="goToChat()">HERE.</a></p>
 
         </ul>
         
@@ -64,7 +64,7 @@
             <div [innerHTML]="currentExtended.acf.content"></div>
             <!--Good Width: 540px-->
             <div class ="center" [innerHTML] = "extendedLabelVideoHTML"></div>
-            <p class="extendedContent">Have a Question? Chat with visitors and curators <a class="extendedLabel" (click)="goToChat()">HERE.</a></p>
+            <p class="extendedContent" *ngIf ="chatOpen">Have a Question? Chat with visitors and curators <a class="extendedLabel" (click)="goToChat()">HERE.</a></p>
 
 
         </div>
@@ -87,4 +87,5 @@
             toDo: Create arrow that will hide tombstone information and show the main content
         -->
     </div>
-
+</div>
+<div class="flex"></div>

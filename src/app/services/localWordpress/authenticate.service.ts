@@ -15,6 +15,7 @@ import { keyframes } from '@angular/animations';
 export class LocalAuthenticateService {
 
   private token:string="";
+  private artworkID:string ="";
 
   
 
@@ -35,6 +36,13 @@ export class LocalAuthenticateService {
 
    setToken(tok:string){
      this.token = tok;
+   }
+
+   getArtworkID():string{
+     return this.artworkID;
+   }
+   setArtworkID(id:string){
+     this.artworkID = id;
    }
 
    registerUser(username:string,email:string,password:string):Observable<any>{

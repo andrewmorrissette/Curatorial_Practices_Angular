@@ -11,7 +11,6 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { Comment } from '../../models/localWordpressModels/comment.model';
-import { Post } from '../../models/localWordpressModels/post.model';
 import { SubscriptionLike } from 'rxjs';
 //import {AuthenticateService} from '../../services/wordpress/authenticate.service';
 import { LocalAuthenticateService } from '../../services/localWordpress/authenticate.service';
@@ -154,6 +153,7 @@ export class WordpressHostedChatComponent implements OnInit, OnDestroy {
   }
 
   login(){
+    this.auth.setArtworkID(this.ArtworkID);
     this._route.navigate(['/login']);
   }
 
@@ -161,6 +161,10 @@ export class WordpressHostedChatComponent implements OnInit, OnDestroy {
     this.wordpressAPI.setAuthToken("");
     this.auth.setToken("");
     this.isLoggedIn = false;
+  }
+
+  backToLabel(){
+    this._route.navigate(['/newLabel/',this.wordpressAPI.getCurrentLabel()]);
   }
 }
 

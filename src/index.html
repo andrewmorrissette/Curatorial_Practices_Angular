@@ -35,7 +35,7 @@
    
 
 </head>
-<body>
+<body onmousedown="return false;">
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K8F84BH"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -59,6 +59,18 @@
 <!-- Loads <model-viewer> for old browsers like IE11: -->
 <script nomodule
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js">
+</script>
+
+<!-- Disable Right Click -->
+<script language="javascript" type="text/javascript">
+  document.oncontextmenu=RightMouseDown;
+  document.onmousedown = mouseDown;
+  
+  function mouseDown(e){
+    if(e.which==3){
+    }
+  }
+  function RightMouseDown(){return false;}
 </script>
   <app-root></app-root>
 </body>

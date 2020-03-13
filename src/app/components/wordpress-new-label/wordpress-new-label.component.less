@@ -2,9 +2,6 @@
 body{
     margin: 44px 0px 0px 50px;
 }
-.label{
-    height:400px;
-}
 .p{
     margin:0em;
 }
@@ -14,6 +11,10 @@ body{
 }
 .p2,.materials,.acknowledgements,.artistLocation,.artistYear{
     font: normal 25px Helvetica;
+}
+.acknowledgements{
+    font: normal 25px Helvetica;
+    margin-bottom:0;
 }
 .p3,.artworkTitle,.artworkYear{
     font: bold italic 35px Helvetica;
@@ -69,4 +70,22 @@ a:not([href]),.extendedLink:not([href]){
 }
 iframe{
     width:540px;
+}
+.center{
+    text-align: center;
+}
+.margin{
+    margin:30px;
+}
+.video{
+    display: block;
+    width: 100%;
+}
+
+/* Due to the iFrame videos being added via innerHTML,
+ fixing css must be completed with the following style*/
+
+:host ::ng-deep iframe{
+    display:block;
+    width:100%;
 }
