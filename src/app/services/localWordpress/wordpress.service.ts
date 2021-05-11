@@ -22,7 +22,7 @@ export class LocalWordpressService {
   //////////////////
   //////CHANGE//////
   //////////////////
-  private personalWordpressSite:string = "https://culturalnexus.msu.edu/wordpress"
+  private personalWordpressSite:string = ""
   //"testingsmartlabel.art.blog/"; //"http://localhost/cultureconnect/"
   private authToken:string = "";
   private currentLabel:string = "";
@@ -33,7 +33,7 @@ export class LocalWordpressService {
   //DO NOT CHANGE///
   /////////////////
 
-  private wordpressAPI:string="https://culturalnexus.msu.edu/wordpress/wp-json/wp/v2/"; //FINAL URL Determined in constructor
+  private wordpressAPI:string=""; //FINAL URL Determined in constructor
 
   private MasterLevelTag="";  
 
