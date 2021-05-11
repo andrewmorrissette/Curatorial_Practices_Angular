@@ -7,3 +7,6 @@ Due to COVID-19 the Senior Showcase for the curatorial practices class had been 
 Code runs via Angular/ Bootstrap using WordPress REST API. A specific interface was created for curators to use at the museum within Wordpress. Afterwards the application would pull data from Wordpress and display it.
 
 [Example](https://culturalnexus.msu.edu/curatorial/#/)
+
+
+All Code is Subject to copyright at Michigan State University. Do not Duplicate or Redistribute without further contacting Brian Kirschensteiner at the Eli and Edythe Broad Art Museum.
