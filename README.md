@@ -1,27 +1,9 @@
-# SmartLabelPWAv3
+#Curatorial Practices Extension of Smart Label PWA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+This project was an extension of an ongoing research project for the Michigan State Univeristy Broad Art Museum. Due to COVID-19 research funding was re-allocated and this specific project was stopped. 
 
-## Development server
+Due to COVID-19 the Senior Showcase for the curatorial practices class had been canceled. Our previous application allowed a way to allow even more research to be shown at the Virtual Exhibit I had also created. Within the virtual exhibit a visitor could scan the QR code at certain objects and be sent to a page with more images, descriptions, video, etc.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Code runs via Angular/ Bootstrap using WordPress REST API. A specific interface was created for curators to use at the museum within Wordpress. Afterwards the application would pull data from Wordpress and display it.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[Example](https://culturalnexus.msu.edu/curatorial/#/)
