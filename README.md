@@ -1,4 +1,4 @@
-#Curatorial Practices Extension of Smart Label PWA
+# Curatorial Practices Extension of Smart Label PWA
 
 This project was an extension of an ongoing research project for the Michigan State Univeristy Broad Art Museum. Due to COVID-19 research funding was re-allocated and this specific project was stopped. 
 
